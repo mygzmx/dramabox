@@ -32,7 +32,6 @@ import { ChaptersModule } from '@/store/modules/chapters'
 import IconLock from '@/assets/images/lock.png'
 import { getTabs } from '@/utils/getTabs'
 import { debounce } from 'throttle-debounce'
-import { DeviceModule } from '@/store/modules/device'
 import { PlayerModule } from '@/store/modules/player'
 import { EnumLock, ITheaterItem } from '@/types/player.interface'
 
@@ -53,7 +52,7 @@ const tabData = computed(() => getTabs(30, PlayerModule.theaters.length))
 
 const selectChapter = debounce(300, async (chapter: ITheaterItem) => {
   if (chapter.lock === EnumLock.lock) {
-    DeviceModule.SetIsShowPaypal(true);
+    // DeviceModule.SetIsShowPaypal(true);
     // todo
   }
   ChaptersModule.SetIsCatalogPopupVisible(false)

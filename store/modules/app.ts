@@ -10,7 +10,6 @@ import { IParentInfo } from '@/types/player.interface'
 })
 class App extends VuexModule implements IAppState {
   public recommendData = {} as IParentInfo
-
 }
 
 export const AppModule = getModule(App)

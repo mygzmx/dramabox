@@ -11,7 +11,7 @@
       @timeupdate="onTimeupdate"
       @error="onErrorEve"
       :options="options"/>
-    <loading-normal :duration="duration" v-if="isLoading" :message="[$t('player.loadingTip1'), $t('player.loadingTip2')]" animation/>
+    <loading-normal :duration="duration" v-if="isLoading" :message="['当前网络不佳', '正在努力加载中...']" animation/>
     <video-control
       :duration="duration"
       :is-show-stop="isShowStop && !isLoading"
@@ -27,23 +27,20 @@ import VideoControl from '@/components/player/videoUnion/videoControl.vue'
 import LoadingNormal from '@/components/common/loadingNormal.vue'
 import {
   ref,
-  defineComponent,
   reactive,
   onBeforeUnmount,
-  watch,
+  watch, defineComponent,
 } from 'vue'
-import { VideoPlayer } from 'vue-video-player'
 import { DeviceModule } from '@/store/modules/device'
 import { ChaptersModule } from '@/store/modules/chapters'
 import { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js'
 import { ITheaterItem } from '@/types/player.interface'
 import { PlayerModule } from '@/store/modules/player'
-
+import { VideoPlayer } from "@videojs-player/vue";
 defineComponent({
   VideoPlayer
 })
-
-const videoInstance = ref<VideoJsPlayer>({} as VideoJsPlayer)
+const videoInstance = ref({} as VideoJsPlayer)
 const isLoading = ref(true)// 视频加载状态
 const isShowStop = ref(true) // 暂停按钮
 const duration = ref(0) // 视频总时长
@@ -192,6 +189,7 @@ onBeforeUnmount(() => {
 </script>
 
 <style lang="scss" scoped>
+
 .videoWrap {
   width: 100%;
   height: 100%;

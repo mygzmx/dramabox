@@ -11,12 +11,16 @@
       </div>
 
       <div class="theaterContent">
-        <div class="theater-item" v-for="val in item.children" :key="val.id" @click="emits('toPlayer', val.id)">
-          <img class="theater-item_img" :src="val.cover_url" alt=""/>
-          <p>{{val.title}}</p>
-        </div>
+        <NuxtLink :to="`/player/${val.id}`" v-for="val in item.children" :key="val.id">
+          <div class="theater-item">
+            <img class="theater-item_img" :src="val.cover_url" alt=""/>
+            <p>{{val.title}}</p>
+          </div>
+        </NuxtLink>
       </div>
     </div>
+
+
   </van-list>
 </template>
 
@@ -35,7 +39,7 @@ watch(() => props.loading, (val) => {
 
 const listLoading = ref(false);
 
-const emits = defineEmits(['onLoad', 'toPlayer'])
+const emits = defineEmits(['onLoad'])
 
 const onLoad = () => {
   emits('onLoad')

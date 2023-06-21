@@ -1,7 +1,5 @@
 <template>
-  <Layout>
-    <NuxtPage/>
-  </Layout>
+  <NuxtPage/>
 </template>
 
 <script lang="ts" setup>
@@ -12,7 +10,7 @@ import { EAutoAdd } from '@/types/common.interface'
 import { UserModule } from '@/store/modules/user'
 import { PlayerModule } from '@/store/modules/player'
 import { addListen, removeListen } from "~/utils/rem";
-import Layout from "@/layout/layout"
+
 import { ownOs } from "~/utils/pline";
 
 const { data: configData } = await $fetch('/api/quick/app/user/login',

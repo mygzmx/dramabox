@@ -1,9 +1,13 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-// @ts-ignore
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['@/assets/css/main.css'],
+  // @ts-ignore
+  css: [
+    'video.js/dist/video-js.css',
+    '~/assets/css/main.css',
+  ],
   modules: [
     "@vant/nuxt",
     "@pinia/nuxt",

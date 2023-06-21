@@ -39,8 +39,8 @@ const themeVars: ConfigProviderThemeVars = reactive({
 })
 
 const tabList = ref([
+  { label: '首页', name: 'theater', icon: 'wap-home', badge: '3',  link: '/' },
   { label: '追剧', name: 'drama', icon: 'like', link: '/drama' },
-  { label: '广场', name: 'theater', icon: 'wap-home', badge: '3',  link: '/' },
   { label: '我的', name: 'self', icon: 'smile', link: '/self' },
 ])
 

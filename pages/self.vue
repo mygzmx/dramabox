@@ -1,7 +1,11 @@
 <template>
-  <div>
-    我的
-  </div>
+  <Layout>
+    <div>
+      我的
+    </div>
+  </Layout>
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import Layout from "@/layout/layout"
+</script>

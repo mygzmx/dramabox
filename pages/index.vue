@@ -1,12 +1,15 @@
 <template>
-  <div class="theaterWrap">
-    <TheaterSwipe :data-source="bannerList" @bannerClick="toPlayer"/>
-    <TheaterList :class-data="classData" :loading="loading" :finished="finished" @onLoad="onLoad" @toPlayer="toPlayer"/>
-  </div>
+  <Layout>
+    <div class="theaterWrap">
+      <TheaterSwipe :data-source="bannerList"/>
+      <TheaterList :class-data="classData" :loading="loading" :finished="finished" @onLoad="onLoad"/>
+    </div>
+  </Layout>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue'
+import Layout from "@/layout/layout"
 import TheaterSwipe from '@/components/theater/swiper/TheaterSwipe.vue'
 import TheaterList from '@/components/theater/list/TheaterList.vue'
 import { IClassListItem, IIndexContent, INetAppletRes } from '~/types/theater.interface'
@@ -19,10 +22,6 @@ const onLoad = async () => {
   console.log('onLoad theater')
   // await getTheaterData()
   loading.value = false;
-}
-
-const toPlayer = (bookId?: string) => {
-  // router.push({ name: 'player', query: { bookId } })
 }
 
 const { data: configData } = await $fetch('/api/applet/config',

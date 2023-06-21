@@ -23,12 +23,13 @@ import IconBack from '@/assets/images/back.png'
 import { computed } from 'vue'
 import { EAutoAdd } from '@/types/common.interface'
 import { DeviceModule } from '@/store/modules/device'
-import { netDrama } from '@/api/player'
 import { ChaptersModule } from '@/store/modules/chapters'
 import { PlayerModule } from '@/store/modules/player'
+import { useRouter } from "#app";
 const chapterName = computed(() => PlayerModule.theaters.length > 0 ? `第${PlayerModule.theaters[PlayerModule.swipeIndex].num}集` : '')
 const bookInfo = computed(() => PlayerModule.parent_info)
 const isRetain = computed(() => DeviceModule.isRetain)
+const router = useRouter()
 // 退出播放器
 const routeBack = () => {
   if (ChaptersModule.isCatalogPopupVisible) {
@@ -38,18 +39,18 @@ const routeBack = () => {
   if (bookInfo.value.autoAdd === EAutoAdd.否) {
     DeviceModule.SetIsRetain(true)
   } else {
-    // router.replace('/')
+    router.replace('/')
   }
 }
 
 const onCancel = () => {
   DeviceModule.SetIsRetain(false)
-  // router.replace('/')
+  router.replace('/')
 }
 
 const onConfirm = () => {
   DeviceModule.SetIsRetain(false)
-  netDrama(PlayerModule.parent_info.id)
+  // netDrama(PlayerModule.parent_info.id) // 追剧
   router.replace('/')
 }
 

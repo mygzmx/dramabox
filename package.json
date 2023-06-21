@@ -10,22 +10,21 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
-    "@paypal/paypal-js": "^6.0.0",
     "@types/node": "^18",
     "@types/throttle-debounce": "^5.0.0",
     "@vant/nuxt": "^1.0.2",
     "nuxt": "^3.5.2",
+    "sass": "^1.63.5",
     "throttle-debounce": "^5.0.0",
     "vant": "^4.5.0",
     "vuex": "^4.1.0",
-    "vuex-module-decorators": "^2.0.0",
-    "sass": "^1.63.5"
+    "vuex-module-decorators": "^2.0.0"
   },
   "dependencies": {
     "@pinia/nuxt": "^0.4.11",
     "@types/video.js": "7.x",
+    "@videojs-player/vue": "^1.0.0",
     "pinia": "^2.1.4",
-    "video.js": "7.x",
-    "vue-video-player": "^6.0.0"
+    "video.js": "7.x"
   }
 }

@@ -9,18 +9,11 @@ import { IDeviceState } from '@/store/modules/index.model'
 })
 class Device extends VuexModule implements IDeviceState {
   public isOnline = true; // 网络情况
-  public headerData = {}; // 请求头信息
-  public readingStartTime = new Date().getTime(); // 开始阅读
   public isRetain = false; // 是否显示用户挽留弹框
   public isShowUnlockTip = false; // 是否显示解锁章节提示
   public isShowOperationTip = false; // 是否显示新手引导提示
   public isNeedReload = false; // 断网造成的视频加载失败是否需要reload
-  public isShowPaypal = false; // 是否显示paypal支付弹框
 
-  @Mutation
-  private SET_ISSHOWPAYPAL (isShowPaypal: boolean) {
-    this.isShowPaypal = isShowPaypal
-  }
 
   @Mutation
   private SET_ISNEEDRELOAD (isNeedReload: boolean) {
@@ -30,11 +23,6 @@ class Device extends VuexModule implements IDeviceState {
   @Mutation
   private SET_ISSHOWOPERATIONTIP (isShowOperationTip: boolean) {
     this.isShowOperationTip = isShowOperationTip
-  }
-
-  @Mutation
-  private SET_HEADERDATA (headerData = {}) {
-    this.headerData = JSON.parse(JSON.stringify(headerData))
   }
 
   @Mutation
@@ -50,12 +38,6 @@ class Device extends VuexModule implements IDeviceState {
   @Mutation
   private SET_ISONLINE (is: boolean) {
     this.isOnline = is
-  }
-
-
-  @Action({ rawError: true })
-  public SetIsShowPaypal (is: boolean) { // 是否显示paypal支付弹框
-    this.SET_ISSHOWPAYPAL(is)
   }
 
   @Action({ rawError: true })
@@ -81,11 +63,6 @@ class Device extends VuexModule implements IDeviceState {
   @Action({ rawError: true }) // 是否显示用户挽留弹框
   public SetIsShowUnlockTip (isShowUnlockTip: boolean) {
     this.SET_ISSHOWUNLOCKTIP(isShowUnlockTip)
-  }
-
-  @Action({ rawError: true }) // 请求头信息
-  public SetHeaderData (headerData = {}) {
-    this.SET_HEADERDATA(headerData)
   }
 }
 

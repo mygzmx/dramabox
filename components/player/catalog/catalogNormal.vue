@@ -31,7 +31,6 @@ import { computed } from 'vue'
 import { EAutoAdd } from '@/types/common.interface'
 import CatalogPopup from '@/components/player/catalog/catalogPopup.vue'
 import { ChaptersModule } from '@/store/modules/chapters'
-import { netDrama } from '@/api/player'
 import { Toast } from 'vant'
 import { DeviceModule } from '@/store/modules/device'
 import { PlayerModule } from '@/store/modules/player'
@@ -42,7 +41,7 @@ const isShowDrama = computed(() => ChaptersModule.isShowDrama)
 const isOnline = computed(() => DeviceModule.isOnline)
 const dramaVideo = () => {
   if (bookInfo.value.autoAdd === EAutoAdd.是) return
-  netDrama(bookInfo.value.id)
+  // netDrama(bookInfo.value.id) //
   PlayerModule.SetParentInfo({
     ...bookInfo.value,
     autoAdd: EAutoAdd.是

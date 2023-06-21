@@ -12,9 +12,11 @@
       v-for="(val,ind) in dataSource"
       :key="val.video_id"
       class="swipeItem">
-      <div class="swipeItemContent">
-        <img class="posterImg" :src="val.image_link" @click="emits('bannerClick', val.video_id)" alt="">
-      </div>
+      <NuxtLink :to="`/player/${val.video_id}`">
+        <div class="swipeItemContent">
+          <img class="posterImg" :src="val.image_link" alt="">
+        </div>
+      </NuxtLink>
     </van-swipe-item>
   </van-swipe>
 </template>
@@ -27,8 +29,6 @@ defineProps({
   dataSource: Array as PropType<IIndexContent[]>
 })
 
-const emits = defineEmits(['bannerClick'])
-
 const onChange = () => {
 
 }
@@ -39,10 +39,12 @@ const onChange = () => {
 .swipeWrap {
   margin: 0.26rem 0;
   height: 3.4rem;
+
   .swipeItemContent {
     padding: 0 0.1rem;
     width: 100%;
     height: 100%;
+
     .posterImg {
       width: 100%;
       height: 100%;
