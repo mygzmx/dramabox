@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body {
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+body, html, #__nuxt {
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+}
+
+body, p, h1, h5, ul, li {
+    margin: 0;
+    padding: 0
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.topToastBox {
+    top: 2.3rem;
+    width: 6.7rem;
+    height: 0.88rem;
+    background-color: #00000099;
+    border-radius: 0.56rem;
+    box-sizing: border-box;
+    font-size: 0.3rem;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+video:focus{
+    outline: 0;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+::-webkit-scrollbar:horizontal{
+    height: 0;
+}
+
