@@ -1,4 +1,4 @@
-import { createStore, createLogger, useStore as baseUseStore, Store } from 'vuex'
+import { createStore, useStore as baseUseStore, Store } from 'vuex'
 import { App, InjectionKey } from 'vue'
 import {
   IAppState, IChaptersState, IDeviceState, IPlayerState, IUserState

@@ -2,7 +2,7 @@
 
 
 export default defineNuxtConfig({
-  devtools: { enabled: true },
+  devtools: false, // 辅助工具
   // @ts-ignore
   css: [
     'video.js/dist/video-js.css',
@@ -11,6 +11,7 @@ export default defineNuxtConfig({
   modules: [
     "@vant/nuxt",
     "@pinia/nuxt",
+    '@nuxtjs/eslint-module',
   ],
   vant: {
     // importStyle: true,
