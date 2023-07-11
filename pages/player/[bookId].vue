@@ -93,7 +93,7 @@ const playerInfo = await $fetch('/api/ks/theater/without/group/index',
       console.log('UserModule.userInfo.id',UserModule.userInfo.id);
 
       options.headers = options.headers || {}
-      options.headers['App-Origin'] = 'wx3e1e4c735213dcb5'
+      Reflect.set(options.headers, 'App-Origin', 'wx3e1e4c735213dcb5')
     },
     onRequestError({ request, options, error }) {
       // Handle the request errors
@@ -107,9 +107,6 @@ const playerInfo = await $fetch('/api/ks/theater/without/group/index',
       // Handle the response errors
     }
   });
-
-
-
 </script>
 
 <style lang="scss" scoped>

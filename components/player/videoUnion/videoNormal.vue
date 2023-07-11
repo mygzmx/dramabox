@@ -1,10 +1,12 @@
 <template>
   <div class="videoWrap">
+<!--    <div style="position: fixed; top: 10px; left: 10px; font-size: 0.32rem; color: red; z-index: 10000">{{ videoInstance }}</div>-->
     <VideoPlayer
       class="video-player vjs-custom-skin"
       :class="isShowPoster && 'vjs-custom-poster'"
       @canplay="onCanplay"
       @play="onPlay"
+      @change="onChange"
       @pause="onPause"
       @ended="onEnded"
       @waiting="onWaiting"
@@ -37,6 +39,7 @@ import { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js'
 import { ITheaterItem } from '@/types/player.interface'
 import { PlayerModule } from '@/store/modules/player'
 import { VideoPlayer } from "@videojs-player/vue";
+import { showNotify } from "vant";
 defineComponent({
   VideoPlayer
 })
@@ -63,7 +66,7 @@ const options = reactive<VideoJsPlayerOptions>({
   muted: false, // 静音
   defaultVolume: 1, // 默认音量大小
   loop: false, // 循环播放
-  autoplay: false, // 自动播放
+  autoplay: true, // 自动播放
   poster: props.chapterInfo.son_cover_url, // 封面
   fluid: true, // 当true时，将按比例缩放以适应其容器。
   // withCredentials: false,
@@ -71,12 +74,12 @@ const options = reactive<VideoJsPlayerOptions>({
   sources: [ // 等同于原生<video>标签中的一组<source>子标签，可实现优雅降级；type 属性规定媒体资源的 MIME 类型
     {
       type: 'video/mp4',
-      src: props.chapterInfo.son_video_url // url地址
+      src: props.chapterInfo.son_video_url // url地址 https://www.runoob.com/try/demo_source/movie.mp4
     },
   ],
   controls: false, // 是否显示控制器
-  playsinline: true // the video is to be played "inline", that is within the element's playback area
-  // crossOrigin: 'use-credentials', // use-credentials anonymous
+  playsinline: true, // the video is to be played "inline", that is within the element's playback area
+  // crossOrigin: 'anonymous', // use-credentials anonymous
 })
 
 // 是否暂停视频
@@ -95,7 +98,7 @@ watch(() => [PlayerModule.isShowEndPage, props.isShowPage, DeviceModule.isOnline
     // 监听显示支付弹框
     // 离开当前屏幕
     if ((isPageLoading || isShowEndPage || !isShowPage || !isOnline || isPayVisible) && isPlaying) {
-      videoInstance.value.pause()
+      videoInstance.value.pause && videoInstance.value.pause()
     }
   }
 )
@@ -139,12 +142,17 @@ const dragProgress = (progressValue: number) => {
 const isShowPoster = ref(true)
 
 const onCanplay = (ev: { target: { player: VideoJsPlayer } }) => {
+  // showNotify('onCanplay');
   videoInstance.value = ev.target.player
   duration.value = ev.target.player.duration() || 0
   isLoading.value = false
   if (props.isShowPage && videoInstance.value.paused && videoInstance.value.paused()) {
     videoInstance.value.play()
   }
+}
+
+const onChange = (player: VideoJsPlayer, newValue: string, oldValue?: string | undefined) => {
+  console.log('1212122122')
 }
 const onPlay = () => {
   isShowStop.value = false
@@ -162,6 +170,7 @@ const onEnded = () => {
 }
 const onTimeupdate = (ev: { target: { player: VideoJsPlayer } }) => {
   const player = ev.target.player
+  isLoading.value = false
   if (!duration.value || duration.value === 0) {
     duration.value = player.duration()
   }

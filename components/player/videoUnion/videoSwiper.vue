@@ -50,8 +50,9 @@ const timer = ref<number>(0)
 const isPayVisible = computed(() => ChaptersModule.isPayVisible)
 
 watch(() => PlayerModule.swipeIndex, (newVal, oldVal) => {
+  // swipeRef.value.resize();
   if ((newVal > oldVal && newVal - oldVal > 1) || (newVal < oldVal && newVal - oldVal < -1)) {
-    swipeRef.value.swipeTo(newVal, { immediate: true })
+    // swipeRef.value.swipeTo(newVal, { immediate: true })
   }
 })
 

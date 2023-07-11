@@ -14,8 +14,8 @@
       </div>
       <div class="titleBox">
         <div class="bookName">{{ bookName }}</div>
-        <div class="titleTip1" v-if="bookFinishStatus === EBookFinishStatus.完本">{{ $t('player.bookFinishStatusTip1') }}</div>
-        <div class="titleTip2" v-if="bookFinishStatus === EBookFinishStatus.连载">{{ $t('player.bookFinishStatusTip2') }}</div>
+        <div class="titleTip1" v-if="bookFinishStatus === EBookFinishStatus.完本">已完结</div>
+        <div class="titleTip2" v-if="bookFinishStatus === EBookFinishStatus.连载">连载中</div>
       </div>
       <catalog-tabs />
     </div>

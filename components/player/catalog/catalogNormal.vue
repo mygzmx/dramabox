@@ -58,6 +58,7 @@ const openCatalog = () => {
   const index = chapterInfo ? Math.ceil(chapterInfo.num / 30) - 1 : 0
   ChaptersModule.SetTabIndex(index)
   ChaptersModule.SetIsCatalogPopupVisible(true)
+  console.log('221212')
 }
 
 </script>

@@ -3,7 +3,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onBeforeMount, onBeforeUnmount, onMounted } from 'vue'
+import { onBeforeMount, onBeforeUnmount } from 'vue'
 import { DeviceModule } from '@/store/modules/device'
 import { ChaptersModule } from '@/store/modules/chapters'
 import { EAutoAdd } from '@/types/common.interface'

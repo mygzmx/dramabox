@@ -1,5 +1,6 @@
 {
-  "name": "nuxt-app",
+  "name": "dramabox",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "build": "nuxt build",
@@ -13,10 +14,11 @@
     "@types/node": "^18",
     "@types/throttle-debounce": "^5.0.0",
     "@vant/nuxt": "^1.0.2",
-    "nuxt": "^3.5.2",
+    "nuxt": "^3.6.2",
     "sass": "^1.63.5",
     "throttle-debounce": "^5.0.0",
     "vant": "^4.5.0",
+    "vue-gtag-next": "^1.14.0",
     "vuex": "^4.1.0",
     "vuex-module-decorators": "^2.0.0"
   },
