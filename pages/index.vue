@@ -24,14 +24,16 @@ const onLoad = async () => {
   loading.value = false;
 }
 
-const { data: configData } = await $fetch('/api/applet/config',
+$fetch('/api/applet/config',
   {
     baseURL: 'https://zf.jxjzwh.cn',
     method: "GET",
     onRequest({ request, options }) {
-      // Set the request headers
       options.headers = options.headers || {}
       options.headers['App-Origin'] = 'wx3e1e4c735213dcb5'
+      // request.headers = request.headers || {}
+      // request.headers['App-Origin'] = 'wx3e1e4c735213dcb5'
+      // Reflect.set(request.headers, 'App-Origin', 'wx3e1e4c735213dcb5')
     },
     onRequestError({ request, options, error }) {
       // Handle the request errors

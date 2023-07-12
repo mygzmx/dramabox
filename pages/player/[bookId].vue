@@ -82,31 +82,7 @@ const onNextChapter = async () => {
 }
 
 const chapterInfo = computed(() => PlayerModule.theaters[PlayerModule.swipeIndex] || {} as ITheaterItem)
-const playerInfo = await $fetch('/api/ks/theater/without/group/index',
-  {
-    baseURL: 'https://zf.jxjzwh.cn',
-    method: "POST",
-    body: JSON.stringify({ parent_id: Number(route.params.bookId), user_id: UserModule.userInfo.id }),
-    responseType: "json",
-    onRequest({ request, options }) {
-      console.log('route.params.bookId',route.params.bookId);
-      console.log('UserModule.userInfo.id',UserModule.userInfo.id);
 
-      options.headers = options.headers || {}
-      Reflect.set(options.headers, 'App-Origin', 'wx3e1e4c735213dcb5')
-    },
-    onRequestError({ request, options, error }) {
-      // Handle the request errors
-    },
-    onResponse({ request, response, options }) {
-      const { parent_info, theaters = [] } = response._data.data as INetPlayerInfoRes;
-      PlayerModule.SetParentInfo(parent_info);
-      PlayerModule.SetTheaters(theaters);
-    },
-    onResponseError({ request, response, options }) {
-      // Handle the response errors
-    }
-  });
 </script>
 
 <style lang="scss" scoped>

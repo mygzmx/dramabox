@@ -6,10 +6,9 @@
     autoplay="3000"
     duration="500"
     :show-indicators="true"
-    :indicator-color="'#FFFFFF'"
-    @change="onChange">
+    :indicator-color="'#FFFFFF'">
     <van-swipe-item
-      v-for="(val,ind) in dataSource"
+      v-for="val in dataSource"
       :key="val.video_id"
       class="swipeItem">
       <NuxtLink :to="`/player/${val.video_id}`">
@@ -29,9 +28,6 @@ defineProps({
   dataSource: Array as PropType<IIndexContent[]>
 })
 
-const onChange = () => {
-
-}
 </script>
 
 <style lang="scss" scoped>

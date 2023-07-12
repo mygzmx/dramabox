@@ -6,7 +6,6 @@
       :class="isShowPoster && 'vjs-custom-poster'"
       @canplay="onCanplay"
       @play="onPlay"
-      @change="onChange"
       @pause="onPause"
       @ended="onEnded"
       @waiting="onWaiting"
@@ -39,7 +38,7 @@ import { VideoJsPlayer, VideoJsPlayerOptions } from 'video.js'
 import { ITheaterItem } from '@/types/player.interface'
 import { PlayerModule } from '@/store/modules/player'
 import { VideoPlayer } from "@videojs-player/vue";
-import { showNotify } from "vant";
+
 defineComponent({
   VideoPlayer
 })
@@ -151,9 +150,6 @@ const onCanplay = (ev: { target: { player: VideoJsPlayer } }) => {
   }
 }
 
-const onChange = (player: VideoJsPlayer, newValue: string, oldValue?: string | undefined) => {
-  console.log('1212122122')
-}
 const onPlay = () => {
   isShowStop.value = false
 }

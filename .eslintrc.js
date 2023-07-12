@@ -30,7 +30,8 @@ module.exports = {
     "@typescript-eslint",
   ],
   "rules": {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
+    'no-console': "off",
+    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'warn',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-var-requires': 'off',
@@ -48,30 +49,29 @@ module.exports = {
     'init-declarations': 0,
     'key-spacing': [0, { 'beforeColon': false, 'afterColon': true }],
     'id-match': 0,
-    'arrow-parens': ['error', 'as-needed'],
 
     // ---------------------------
     'vue/no-unused-vars': 'warn',
     'no-multiple-empty-lines': 'warn',
-    '@typescript-eslint/no-empty-function': 'warn',
-    camelcase: 'off',
+    '@typescript-eslint/no-empty-function': 'off', // Unexpected empty arrow function
+    'camelcase': 'off',
     'space-before-blocks': 'off',
     'quote-props': "off",
     'vue/multi-word-component-names': "off",
     'object-property-newline': 'off',
     'object-curly-newline': 'off',
     'prefer-const': 'warn',
-    eqeqeq: ['warn', 'always'],
-    quotes: ['off', 'single', { allowTemplateLiterals: true }],
+    'eqeqeq': ['warn', 'always'],
+    'quotes': ['off', 'single', { 'allowTemplateLiterals': true }],
     'semi': [0, 'always'],
     'no-use-before-define': 'off',
     'no-void': 'off',
     'comma-dangle': 'off',
-    '@typescript-eslint/no-unused-vars': 'warn',
+    '@typescript-eslint/no-unused-vars': 'off', // 'xxx' is defined but never used
     '@typescript-eslint/no-empty-interface': 'off',
     'space-before-function-paren': 0,
-    indent: [
-      'error', 2, { SwitchCase: 1 }
+    'indent': [
+      'error', 2, { 'SwitchCase': 1 }
     ],
     'array-bracket-spacing': 'off',
     'no-trailing-spaces': 'off',
@@ -85,8 +85,8 @@ module.exports = {
     "@typescript-eslint/ban-types": [
       "error",
       {
-        extendDefaults: true,
-        types: {
+        'extendDefaults': true,
+        'types': {
           "{}": false
         }
       }

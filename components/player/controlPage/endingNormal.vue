@@ -43,7 +43,6 @@ const countDownFinish = async () => {
   console.log('-----------倒计时结束-----------')
   if (PlayerModule.isShowEndPage) {
     PlayerModule.SetIsShowEndPage(false)
-    // todo
   }
 }
 </script>
